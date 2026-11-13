@@ -1,5 +1,13 @@
 # Changelog
 
+## Unreleased
+
+- 定義各 Commit Type 的用途；重構、測試、相依套件升級歸類為 `Feature`。
+- Commit 訊息允許多行內文，並保留 `Co-Authored-By`。
+- `git fetch` 等唯讀指令不需授權；區分「提交」與「準備／草擬」Commit。
+- 減少每次使用的工具呼叫：合併狀態檢查、不重跑已完成的驗證、依任務大小調整回報。
+- 移除參考文件中與 `SKILL.md` 重複的規則。
+
 ## v0.1.0 — 2026-11-13
 
 - 建立通用 Git／Commit／PR Skill：`repo-flow`。

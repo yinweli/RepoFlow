@@ -6,7 +6,7 @@ Use when the user asks to integrate multiple branches into one trunk in a define
 
 All branches began from `dev`, and the intended integration order is A, B, C.
 
-1. Confirm authorization, merge order, clean/preserved worktree state, and the actual integration branch. Fetch the current remote state when authorized and needed.
+1. Confirm authorization, merge order, clean/preserved worktree state, and the actual integration branch. Fetch the current remote state (no authorization needed).
 2. Prepare A against the current target (rebase A first if the target advanced and project policy requires it). Verify A, confirm the PR/CI requirements, then merge A through the project's approved merge method.
 3. Refresh the target after A is merged. **Rebase B onto the latest target containing A.** Resolve authorized conflicts, inspect the resulting diff/commit range, rerun tests and required CI, update B's PR if needed, then merge B.
 4. Refresh the target after B is merged. **Rebase C onto the latest target containing A and B.** Repeat conflict review, checks, PR update, and merge.
@@ -31,6 +31,4 @@ git rebase origin/dev
 
 - Never rebase all remaining branches once and treat them as current after further merges.
 - Re-check that the target has not advanced again before each integration.
-- If conflicts require business/design decisions, pause that branch and ask for a decision; do not guess.
 - Respect repository PR, branch-protection, and merge-queue policy. A merge queue can impose a different approved integration mechanism; do not bypass it to force this manual sequence.
-- Do not interpret `rebase` as permission for an automatic merge or force-push.
