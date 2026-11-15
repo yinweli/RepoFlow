@@ -31,7 +31,8 @@ Keep Git history focused, changes safe, and integration predictable. Follow expl
   - `Design`: design documents
   - `Doc`: other documentation (README, guides, notes)
   - `Sheet`: tabular data files, such as game skill or level-up tables
-  - `Tool`: utility scripts or project-specific small tools
+  - `Tool`: utility scripts, project-specific small tools, and development workflow such as CI, task runners, and AI instruction files (e.g. `CLAUDE.md`)
+- Use only the types above and any the project defines; do not invent new types.
 - Do not amend or rewrite existing commits unless specifically authorized.
 
 ## Branch and PR Workflow
@@ -41,7 +42,7 @@ Keep Git history focused, changes safe, and integration predictable. Follow expl
 3. Keep changes scoped, verify them, and prepare a PR according to repository rules.
 4. Before merging each branch, verify it against the **latest** integration branch, rerun relevant checks, and confirm required PR reviews/CI.
 5. When integrating multiple branches in a specified order, **rebase each remaining branch onto the latest integration branch after the preceding branch has merged**. Read `references/sequential-rebase.md` for that workflow.
-6. After an authorized merge, perform only approved branch cleanup and synchronization. Do not assume all non-trunk branches are disposable.
+6. After an authorized merge, perform only approved branch cleanup and synchronization. Do not assume all non-trunk branches are disposable; if the project expects only the trunk and current branch to remain but others exist, list them and ask before deleting.
 
 ## Rebase Precautions
 
